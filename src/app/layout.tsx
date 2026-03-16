@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistMono.variable} antialiased`}>
-        <div className="mx-auto max-w-2xl px-6 py-12 min-h-screen flex flex-col">
+        <div className="mx-auto w-full max-w-3xl px-8 py-12 min-h-screen flex flex-col">
           <Nav />
           <main className="flex-1 pt-16">{children}</main>
           <footer className="border-t border-border pt-6 pb-4 mt-20">
