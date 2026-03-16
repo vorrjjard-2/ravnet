@@ -24,9 +24,11 @@ export default function ProjectCard({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-border group relative overflow-hidden">
+    <div className="border border-border group relative overflow-hidden hover:border-muted transition-colors hover:shadow-[0_0_20px_rgba(255,255,255,0.03)]">
       {/* top gradient line */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-muted to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      {/* bottom gradient line */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-muted to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
       {/* collapsed header — always visible */}
       <button

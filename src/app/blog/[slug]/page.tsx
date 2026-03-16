@@ -62,7 +62,18 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               key={i}
               className="text-sm text-foreground leading-relaxed max-w-lg"
             >
-              {paragraph}
+              {paragraph.split(/(`[^`]+`)/).map((segment, j) =>
+                segment.startsWith("`") && segment.endsWith("`") ? (
+                  <code
+                    key={j}
+                    className="text-accent bg-border/50 px-1.5 py-0.5 text-xs rounded"
+                  >
+                    {segment.slice(1, -1)}
+                  </code>
+                ) : (
+                  <span key={j}>{segment}</span>
+                )
+              )}
             </p>
           ))}
         </article>

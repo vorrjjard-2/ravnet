@@ -1,5 +1,6 @@
 import FadeIn from "../components/fade-in";
 import ExperienceList from "../components/experience";
+import SkillBar from "../components/skill-bar";
 
 export default function About() {
   return (
@@ -94,15 +95,7 @@ export default function About() {
               { name: "pytorch-lightning", level: 75 },
               { name: "matplotlib / seaborn", level: 75 },
             ].map((item) => (
-              <div key={item.name} className="border border-border p-3 group hover:border-muted transition-colors">
-                <p className="text-xs text-accent">{item.name}</p>
-                <div className="mt-2 h-px bg-border overflow-hidden">
-                  <div
-                    className="h-full bg-muted group-hover:bg-accent transition-colors"
-                    style={{ width: `${item.level}%` }}
-                  />
-                </div>
-              </div>
+              <SkillBar key={item.name} name={item.name} level={item.level} />
             ))}
           </div>
         </div>

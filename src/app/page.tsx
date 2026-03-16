@@ -23,16 +23,16 @@ export default function Home() {
             Building production ML systems — from time series forecasting to
             distributed pipelines. Ex ML Engineering @ Shopee.
           </p>
-          <div className="flex gap-4 mt-12">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-12">
             <a
               href="/projects"
-              className="text-xs border border-border px-4 py-2 hover:bg-accent hover:text-background transition-colors"
+              className="text-xs border border-border px-6 py-3 sm:px-4 sm:py-2 hover:bg-accent hover:text-background transition-colors text-center"
             >
               view projects &rarr;
             </a>
             <a
               href="/contact"
-              className="text-xs text-muted hover:text-accent transition-colors px-4 py-2"
+              className="text-xs text-muted hover:text-accent transition-colors px-6 py-3 sm:px-4 sm:py-2 text-center"
             >
               get in touch
             </a>

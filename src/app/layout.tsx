@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/nav";
+import PageTransition from "./components/page-transition";
+import BackToTop from "./components/back-to-top";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -52,9 +54,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistMono.variable} antialiased`}>
         <div className="mx-auto w-full max-w-3xl px-8 py-12 min-h-screen flex flex-col">
-          <Nav />
-          <main className="flex-1 pt-16">{children}</main>
-          <footer className="border-t border-border pt-6 pb-4 mt-20 text-xs text-muted font-mono space-y-2">
+          <div data-layout-chrome>
+            <Nav />
+          </div>
+          <main className="flex-1 pt-16">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <BackToTop />
+          <footer data-layout-chrome className="border-t border-border pt-6 pb-4 mt-20 text-xs text-muted font-mono space-y-2">
             <p>&copy; {new Date().getFullYear()} Ruben Saulog</p>
             <p className="flex gap-2">
               <a

@@ -1,4 +1,4 @@
-import FadeIn from "../components/fade-in";
+import ResumeShell from "../components/resume-shell";
 
 export const metadata = {
   title: "Resume",
@@ -7,8 +7,8 @@ export const metadata = {
 
 export default function ResumePage() {
   return (
-    <FadeIn>
-      <section className="border border-border p-6 sm:p-10 max-w-2xl mx-auto">
+    <ResumeShell>
+      <section className="border border-border p-6 sm:p-10 max-w-2xl mx-auto bg-background">
         {/* header */}
         <div className="flex items-start justify-between gap-4 pb-4 border-b border-border">
           <div>
@@ -214,6 +214,6 @@ export default function ResumePage() {
           </div>
         </div>
       </section>
-    </FadeIn>
+    </ResumeShell>
   );
 }
