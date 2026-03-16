@@ -8,18 +8,34 @@ export default function About() {
         <p className="text-xs text-muted mb-4 font-mono">// about</p>
         <h1 className="text-2xl font-bold text-accent tracking-tight">About</h1>
 
-        <div className="mt-8 space-y-4 text-sm text-foreground leading-relaxed max-w-lg">
-          <p>
-            I&apos;m Ruben — an aspiring ML engineer passionate about building
-            real-world machine learning systems. I&apos;ve worked across forecasting,
-            computer vision, and research, and I&apos;m driven by advancing toward
-            top-tier ML research.
-          </p>
-          <p>
-            Currently finishing my BS in Management Information Systems at
-            Ateneo de Manila University. Previously built production ML pipelines
-            at Shopee, from distributed forecasting systems to inventory analytics.
-          </p>
+        <div className="mt-8 flex gap-8 items-start">
+          <div className="space-y-4 text-sm text-foreground leading-relaxed flex-1">
+            <p>
+              I&apos;m Ruben — an aspiring ML engineer passionate about building
+              real-world machine learning systems. I&apos;ve worked across forecasting,
+              computer vision, and research, and I&apos;m driven by advancing toward
+              top-tier ML research.
+            </p>
+            <p>
+              Currently finishing my BS in Management Information Systems at
+              Ateneo de Manila University. Previously built production ML pipelines
+              at Shopee, from distributed forecasting systems to inventory analytics.
+            </p>
+          </div>
+          <pre className="hidden sm:block text-[8px] text-muted leading-[1.1] font-mono select-none shrink-0">{`
+      ___________
+     /           \\
+    /  _       _  \\
+   |  | |     | |  |
+   |  |_|     |_|  |
+   |               |
+   |    \\_____/    |
+    \\             /
+     \\___________/
+      |         |
+      |  R . S  |
+      |_________|
+`}</pre>
         </div>
       </FadeIn>
 
@@ -94,6 +110,13 @@ export default function About() {
 
       <FadeIn>
         <div className="mt-14 border-t border-border pt-8">
+          <h2 className="text-xs text-muted mb-6 font-mono">// experience</h2>
+          <ExperienceList />
+        </div>
+      </FadeIn>
+
+      <FadeIn>
+        <div className="mt-14 border-t border-border pt-8">
           <h2 className="text-xs text-muted mb-6 font-mono">// education</h2>
           <div className="space-y-4">
             <div className="border border-border p-4">
@@ -115,13 +138,6 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-      </FadeIn>
-
-      <FadeIn>
-        <div className="mt-14 border-t border-border pt-8">
-          <h2 className="text-xs text-muted mb-6 font-mono">// experience</h2>
-          <ExperienceList />
         </div>
       </FadeIn>
     </section>
