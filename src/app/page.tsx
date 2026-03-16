@@ -14,14 +14,14 @@ export default function Home() {
         <div className="relative z-10 flex flex-col justify-center flex-1">
           <p className="text-xs text-muted mb-6 font-mono">// hello world</p>
           <h1 className="text-5xl font-bold text-accent leading-tight tracking-tight">
-            Ravi Saulog
+            Ruben Saulog
           </h1>
           <div className="mt-3 h-7">
             <Typewriter />
           </div>
           <p className="text-sm text-muted mt-10 max-w-lg leading-relaxed">
-            I design and build things. Currently exploring ideas at the intersection
-            of software, systems, and craft.
+            Building production ML systems — from time series forecasting to
+            distributed pipelines. Ex ML Engineering @ Shopee.
           </p>
           <div className="flex gap-4 mt-12">
             <a

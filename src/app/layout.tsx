@@ -9,8 +9,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ravi Saulog",
-  description: "Engineer & builder",
+  title: "Ruben Saulog",
+  description: "ML Engineer — forecasting, computer vision, research",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
           <main className="flex-1 pt-16">{children}</main>
           <footer className="border-t border-border pt-6 pb-4 mt-20">
             <p className="text-xs text-muted font-mono">
-              &copy; {new Date().getFullYear()} Ravi Saulog
+              &copy; {new Date().getFullYear()} Ruben Saulog
             </p>
           </footer>
         </div>

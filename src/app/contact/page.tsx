@@ -18,9 +18,9 @@ export default function Contact() {
       <FadeIn>
         <div className="mt-10 space-y-4">
           {[
-            { label: "email", value: "hello@ravisaulog.com", href: "mailto:hello@ravisaulog.com" },
-            { label: "github", value: "github.com/ravisaulog", href: "https://github.com/ravisaulog" },
-            { label: "linkedin", value: "linkedin.com/in/ravisaulog", href: "https://linkedin.com/in/ravisaulog" },
+            { label: "email", value: "ruben.saulog@gmail.com", href: "mailto:ruben.saulog@gmail.com" },
+            { label: "github", value: "github.com/vorrjjard-2", href: "https://github.com/vorrjjard-2" },
+            { label: "linkedin", value: "linkedin.com/in/ruben-saulog", href: "https://linkedin.com/in/ruben-saulog" },
           ].map((item) => (
             <a
               key={item.label}

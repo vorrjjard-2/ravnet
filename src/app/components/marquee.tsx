@@ -1,14 +1,14 @@
 "use client";
 
 const items = [
-  "SYSTEMS DESIGN",
+  "TIME SERIES FORECASTING",
   "DISTRIBUTED COMPUTING",
-  "FULL-STACK",
-  "INFRASTRUCTURE",
-  "OPEN SOURCE",
-  "PERFORMANCE",
-  "RELIABILITY",
-  "AUTOMATION",
+  "FEATURE ENGINEERING",
+  "COMPUTER VISION",
+  "PYTORCH",
+  "ML SYSTEMS",
+  "DEEP LEARNING",
+  "DATA PIPELINES",
 ];
 
 export default function Marquee() {

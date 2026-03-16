@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 
 const phrases = [
-  "Engineer & builder.",
-  "Systems thinker.",
-  "Maker of things.",
+  "ML Engineer.",
+  "Time series forecaster.",
+  "PyTorch enthusiast.",
   "Perpetually curious.",
 ];
 

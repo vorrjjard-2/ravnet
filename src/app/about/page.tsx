@@ -10,13 +10,15 @@ export default function About() {
 
         <div className="mt-8 space-y-4 text-sm text-foreground leading-relaxed max-w-lg">
           <p>
-            I&apos;m Ravi — an engineer who likes building things from the ground up.
-            I care about clean systems, simple interfaces, and work that
-            speaks for itself.
+            I&apos;m Ruben — an aspiring ML engineer passionate about building
+            real-world machine learning systems. I&apos;ve worked across forecasting,
+            computer vision, and research, and I&apos;m driven by advancing toward
+            top-tier ML research.
           </p>
           <p>
-            When I&apos;m not writing code, I&apos;m probably sketching out ideas,
-            reading about distributed systems, or tinkering with something new.
+            Currently finishing my BS in Management Information Systems at
+            Ateneo de Manila University. Previously built production ML pipelines
+            at Shopee, from distributed forecasting systems to inventory analytics.
           </p>
         </div>
       </FadeIn>
@@ -26,9 +28,9 @@ export default function About() {
           <h2 className="text-xs text-muted mb-6 font-mono">// at a glance</h2>
           <div className="grid grid-cols-3 gap-4">
             {[
-              { value: "4+", label: "years building" },
-              { value: "12", label: "projects shipped" },
-              { value: "∞", label: "curiosity" },
+              { value: "7mo", label: "at Shopee" },
+              { value: "10K+", label: "SKUs forecasted" },
+              { value: "20pp", label: "avg wMAPE reduction" },
             ].map((stat) => (
               <div key={stat.label} className="border border-border p-4 text-center">
                 <p className="text-2xl font-bold text-accent">{stat.value}</p>
@@ -41,13 +43,13 @@ export default function About() {
 
       <FadeIn>
         <div className="mt-14 border-t border-border pt-8">
-          <h2 className="text-xs text-muted mb-6 font-mono">// principles</h2>
+          <h2 className="text-xs text-muted mb-6 font-mono">// what drives me</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
             {[
-              { title: "Ship, then iterate", body: "A working prototype beats a perfect plan. Get it out, learn, refine." },
-              { title: "Simplicity scales", body: "The best systems are the ones you can explain in a sentence." },
-              { title: "Own the whole stack", body: "From database schema to deploy pipeline — context is a superpower." },
-              { title: "Stay curious", body: "The best engineers never stop being beginners at something." },
+              { title: "Systems over scripts", body: "Production ML is about pipelines, not notebooks. Build things that run at scale." },
+              { title: "Research with purpose", body: "The best models solve real problems — forecasting demand, optimizing inventory, cutting costs." },
+              { title: "Learn by building", body: "Every new architecture is a chance to understand something deeper about the math underneath." },
+              { title: "Ship and measure", body: "A deployed model with metrics beats a perfect model on your laptop." },
             ].map((p) => (
               <div key={p.title} className="group">
                 <p className="text-sm text-accent font-medium flex items-center gap-2">
@@ -66,12 +68,15 @@ export default function About() {
           <h2 className="text-xs text-muted mb-6 font-mono">// stack</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {[
-              { name: "TypeScript", level: 90 },
-              { name: "Python", level: 85 },
-              { name: "React / Next.js", level: 75 },
-              { name: "Node.js", level: 80 },
-              { name: "PostgreSQL", level: 70 },
-              { name: "Linux", level: 75 },
+              { name: "Python", level: 90 },
+              { name: "PyTorch", level: 85 },
+              { name: "scikit-learn", level: 85 },
+              { name: "SQL / Trino", level: 80 },
+              { name: "Ray", level: 70 },
+              { name: "LightGBM", level: 80 },
+              { name: "pandas", level: 90 },
+              { name: "pytorch-lightning", level: 75 },
+              { name: "matplotlib / seaborn", level: 75 },
             ].map((item) => (
               <div key={item.name} className="border border-border p-3 group hover:border-muted transition-colors">
                 <p className="text-xs text-accent">{item.name}</p>
@@ -89,25 +94,26 @@ export default function About() {
 
       <FadeIn>
         <div className="mt-14 border-t border-border pt-8">
-          <h2 className="text-xs text-muted mb-6 font-mono">// beyond the terminal</h2>
-          <div className="flex flex-wrap gap-2">
-            {[
-              "mechanical keyboards",
-              "specialty coffee",
-              "film photography",
-              "hiking",
-              "sci-fi novels",
-              "open source",
-              "minimalist design",
-              "lo-fi beats",
-            ].map((tag) => (
-              <span
-                key={tag}
-                className="text-[10px] text-muted border border-border px-3 py-1 hover:text-accent hover:border-muted transition-colors"
-              >
-                {tag}
-              </span>
-            ))}
+          <h2 className="text-xs text-muted mb-6 font-mono">// education</h2>
+          <div className="space-y-4">
+            <div className="border border-border p-4">
+              <div className="flex items-baseline justify-between">
+                <div>
+                  <p className="text-sm text-accent">Ateneo de Manila University</p>
+                  <p className="text-xs text-muted">BS Management Information Systems</p>
+                </div>
+                <p className="text-[10px] text-muted font-mono">2022 — 2027</p>
+              </div>
+            </div>
+            <div className="border border-border p-4">
+              <div className="flex items-baseline justify-between">
+                <div>
+                  <p className="text-sm text-accent">Xavier School</p>
+                  <p className="text-xs text-muted">High School Diploma, STEM</p>
+                </div>
+                <p className="text-[10px] text-muted font-mono">2009 — 2022</p>
+              </div>
+            </div>
           </div>
         </div>
       </FadeIn>

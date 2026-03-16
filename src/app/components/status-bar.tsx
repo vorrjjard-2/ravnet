@@ -33,7 +33,7 @@ export default function StatusBar() {
       <span className="text-border">|</span>
       <span>SYS {time}</span>
       <span className="text-border">|</span>
-      <span>LOCATION: SF_BAY</span>
+      <span>LOCATION: QC_PH</span>
       <span className="text-border">|</span>
       <span>STATUS: BUILDING</span>
     </div>

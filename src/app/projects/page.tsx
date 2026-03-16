@@ -1,23 +1,71 @@
 import FadeIn from "../components/fade-in";
+import ProjectCard, { type Project } from "../components/project-card";
 
-const projects = [
+const projects: Project[] = [
   {
-    title: "Project Alpha",
-    description: "A distributed task scheduler built for reliability.",
-    tags: ["Go", "Redis", "gRPC"],
+    title: "Sales Forecasting Pipeline",
+    description: "Production ML system forecasting 10K+ SKUs across 8 business units at Shopee.",
+    longDescription:
+      "A sequential forecasting architecture designed to handle zero-skewed sales distributions across Shopee's retail business units. The system combines LightGBM for broad SKU coverage with a Temporal Fusion Transformer for data-rich SKUs, distributed across a Ray cluster for scale. Reduced wMAPE by an average of 20 percentage points, directly improving restocking accuracy and cutting opportunity costs.",
+    tags: ["Python", "LightGBM", "PyTorch", "Ray"],
     status: "LIVE",
+    repo: "https://github.com/vorrjjard-2",
+    highlights: [
+      "Reduced wMAPE across 8 BUs — average 20pp reduction, max 44pp",
+      "Forecasts 10K+ unique SKUs over a 30+ day horizon",
+      "Built TFT model in pytorch / pytorch-forecasting / pytorch-lightning for high-data SKUs",
+      "Time-series feature engineering: dynamic target encoding, EWM averages, rolling trends",
+      "Distributed training and inference via Ray for horizontal scaling",
+    ],
+    stats: [
+      { label: "SKUs", value: "10K+" },
+      { label: "avg wMAPE reduction", value: "20pp" },
+      { label: "horizon", value: "30+ days" },
+    ],
+    architecture: ["Feature Store", "LightGBM / TFT", "Ray Cluster", "Evaluation", "Production"],
   },
   {
-    title: "Project Beta",
-    description: "Real-time data pipeline with sub-second latency.",
-    tags: ["Python", "Kafka", "PostgreSQL"],
+    title: "Inventory Analytics Dashboard",
+    description: "Automated SQL-based dashboard that cut non-moving inventory by 50% in 8 weeks.",
+    longDescription:
+      "A cron-based automation system that generates daily and historical views of non-moving SKU metrics for Shopee's Retail team under SCommerce. Built to give managers real-time visibility into stagnant inventory worth $20M+ USD, enabling faster decisions on flushing and restocking. The solution was adopted across multiple business units.",
+    tags: ["SQL", "Trino", "Python", "pandas"],
     status: "LIVE",
+    repo: "https://github.com/vorrjjard-2",
+    highlights: [
+      "50% decrease in non-moving SKU inventory value within 8 weeks",
+      "Daily and historical metric views via cron-automated SQL pipelines",
+      "Adopted across multiple business units beyond the original team",
+      "Refined replenishment logic for brands like Apple and Samsung",
+      "Served as data PIC — inventory reports used by ~25 brands",
+    ],
+    stats: [
+      { label: "inventory managed", value: "$20M+" },
+      { label: "non-moving reduction", value: "50%" },
+      { label: "brands served", value: "~25" },
+    ],
+    architecture: ["Trino / SQL", "Cron Scheduler", "pandas ETL", "Dashboard"],
   },
   {
-    title: "Project Gamma",
-    description: "Minimal CLI tool for managing cloud infrastructure.",
-    tags: ["Rust", "AWS", "CLI"],
-    status: "WIP",
+    title: "Temporal Fusion Transformer",
+    description: "Deep learning forecasting model built in PyTorch for high-data SKUs.",
+    longDescription:
+      "A standalone implementation of the Temporal Fusion Transformer architecture using pytorch, pytorch-forecasting, and pytorch-lightning. Designed as a complementary model to the LightGBM pipeline for SKUs with sufficient historical data, leveraging attention mechanisms to capture long-range temporal dependencies and variable-importance interpretability.",
+    tags: ["PyTorch", "pytorch-forecasting", "pytorch-lightning"],
+    status: "LIVE",
+    repo: "https://github.com/vorrjjard-2",
+    highlights: [
+      "Multi-horizon probabilistic forecasting with quantile outputs",
+      "Built-in variable importance via attention weight interpretation",
+      "Trained on SKUs with richer historical data for higher accuracy",
+      "Integrated into the broader forecasting pipeline alongside LightGBM",
+    ],
+    stats: [
+      { label: "framework", value: "PyTorch" },
+      { label: "type", value: "TFT" },
+      { label: "output", value: "multi-horizon" },
+    ],
+    architecture: ["Data Loader", "Encoder", "Attention", "Decoder", "Quantile Output"],
   },
 ];
 
@@ -30,50 +78,16 @@ export default function Projects() {
           Projects
         </h1>
         <p className="text-xs text-muted mt-2 font-mono">
-          {projects.length} entries found — {projects.filter((p) => p.status === "LIVE").length} live, {projects.filter((p) => p.status === "WIP").length} in progress
+          {projects.length} entries found —{" "}
+          {projects.filter((p) => p.status === "LIVE").length} live,{" "}
+          {projects.filter((p) => p.status === "WIP").length} in progress
         </p>
       </FadeIn>
 
-      <div className="mt-8 space-y-6">
+      <div className="mt-8 space-y-4">
         {projects.map((project, i) => (
           <FadeIn key={project.title}>
-            <div className="border border-border p-5 hover:border-muted transition-all group relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-muted to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="flex items-start justify-between">
-                <div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs text-muted font-mono">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h2 className="text-sm font-bold text-accent">
-                      {project.title}
-                    </h2>
-                  </div>
-                  <p className="text-sm text-foreground mt-1 ml-8">
-                    {project.description}
-                  </p>
-                </div>
-                <span
-                  className={`text-[10px] font-mono px-2 py-0.5 border ${
-                    project.status === "LIVE"
-                      ? "text-green-500 border-green-500/30"
-                      : "text-yellow-500 border-yellow-500/30"
-                  }`}
-                >
-                  {project.status}
-                </span>
-              </div>
-              <div className="flex gap-2 mt-3 ml-8">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[10px] text-muted border border-border px-2 py-0.5"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <ProjectCard project={project} index={i} />
           </FadeIn>
         ))}
       </div>
