@@ -11,11 +11,9 @@ export default function Blog() {
   return (
     <section>
       <FadeIn>
-        <p className="text-xs text-muted mb-4 font-mono">// blog</p>
         <h1 className="text-2xl font-bold text-accent tracking-tight">Blog</h1>
-        <p className="text-xs text-muted mt-2 font-mono">
-          {posts.length} posts — thoughts on ML systems, production engineering,
-          and lessons learned
+        <p className="text-sm text-muted mt-2">
+          Thoughts on ML systems, production engineering, and lessons learned.
         </p>
       </FadeIn>
 
@@ -23,9 +21,9 @@ export default function Blog() {
         {posts.map((post) => (
           <FadeIn key={post.slug}>
             <Link href={`/blog/${post.slug}`} className="block group">
-              <article className="border border-border p-5 hover:bg-white/[0.02] transition-colors">
+              <article className="border border-border p-5 hover:bg-accent/5 transition-colors">
                 <div className="flex items-baseline justify-between">
-                  <h2 className="text-sm font-bold text-accent group-hover:underline">
+                  <h2 className="text-sm font-bold text-accent group-hover:underline transition-colors">
                     {post.title}
                   </h2>
                   <span className="text-[10px] text-muted font-mono ml-4 shrink-0">
@@ -35,7 +33,7 @@ export default function Blog() {
                 <p className="text-sm text-foreground mt-2 leading-relaxed">
                   {post.summary}
                 </p>
-                <div className="flex gap-2 mt-3">
+                <div className="flex gap-2 mt-3 flex-wrap">
                   {post.tags.map((tag) => (
                     <span
                       key={tag}

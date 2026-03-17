@@ -50,11 +50,11 @@ export default function ExperienceList() {
           <div key={item.role} className="border border-border">
             <button
               onClick={() => setOpenIndex(isOpen ? null : i)}
-              className="w-full flex items-baseline justify-between px-4 py-3 hover:bg-white/[0.02] transition-colors text-left cursor-pointer"
+              className="w-full flex items-baseline justify-between px-4 py-3 text-left cursor-pointer hover:bg-accent/5 transition-colors"
             >
               <div className="flex items-baseline gap-3">
-                <span className="text-xs text-muted font-mono w-4">
-                  {isOpen ? "−" : "+"}
+                <span className="text-xs text-muted w-4 transition-transform duration-200" style={{ display: "inline-block", transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}>
+                  +
                 </span>
                 <div>
                   <p className="text-sm text-accent">{item.role}</p>
@@ -68,13 +68,13 @@ export default function ExperienceList() {
                 isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <ul className="px-4 pb-4 pl-11 space-y-2">
+              <ul className="px-4 pb-4 pl-11 pt-3 space-y-2">
                 {item.details.map((detail, j) => (
                   <li
                     key={j}
                     className="text-xs text-foreground leading-relaxed flex gap-2"
                   >
-                    <span className="text-muted shrink-0">&gt;</span>
+                    <span className="text-muted shrink-0">&ndash;</span>
                     {detail}
                   </li>
                 ))}

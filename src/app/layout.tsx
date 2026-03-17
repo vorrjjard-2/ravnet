@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/nav";
 import PageTransition from "./components/page-transition";
 import BackToTop from "./components/back-to-top";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -52,16 +57,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistMono.variable} antialiased`}>
-        <div className="mx-auto w-full max-w-3xl px-8 py-12 min-h-screen flex flex-col">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <div className="mx-auto w-full max-w-3xl px-6 sm:px-8 py-8 sm:py-12 min-h-screen flex flex-col">
           <div data-layout-chrome>
             <Nav />
           </div>
-          <main className="flex-1 pt-16">
+          <main className="flex-1 flex flex-col pt-16">
             <PageTransition>{children}</PageTransition>
           </main>
           <BackToTop />
-          <footer data-layout-chrome className="border-t border-border pt-6 pb-4 mt-20 text-xs text-muted font-mono space-y-2">
+          <footer data-layout-chrome className="border-t border-border pt-6 pb-4 mt-auto text-xs text-muted space-y-2">
             <p>&copy; {new Date().getFullYear()} Ruben Saulog</p>
             <p className="flex gap-2">
               <a
@@ -89,7 +94,6 @@ export default function RootLayout({
                 email
               </a>
             </p>
-            <p>built with next.js</p>
           </footer>
         </div>
       </body>
