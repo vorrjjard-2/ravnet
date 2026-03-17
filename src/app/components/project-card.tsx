@@ -24,11 +24,16 @@ export default function ProjectCard({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-border group hover:border-muted transition-colors">
+    <div className="border border-border group relative overflow-hidden hover:border-muted transition-colors hover:shadow-[0_0_20px_rgba(255,255,255,0.03)]">
+      {/* top gradient line */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-muted to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      {/* bottom gradient line */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-muted to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
+      {/* collapsed header — always visible */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-full text-left p-5 hover:bg-accent/5 transition-colors cursor-pointer"
+        className="w-full text-left p-5 hover:bg-white/[0.02] transition-colors cursor-pointer"
       >
         <div className="flex items-start justify-between">
           <div className="flex-1">
@@ -54,7 +59,7 @@ export default function ProjectCard({
             <p className="text-sm text-foreground mt-1 ml-8">
               {project.description}
             </p>
-            <div className="flex gap-2 mt-3 ml-8 flex-wrap">
+            <div className="flex gap-2 mt-3 ml-8">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
@@ -65,24 +70,27 @@ export default function ProjectCard({
               ))}
             </div>
           </div>
-          <span className="text-xs text-muted mt-1 ml-4 shrink-0 transition-transform duration-200" style={{ transform: open ? "rotate(45deg)" : "rotate(0deg)" }}>
-            +
+          <span className="text-xs text-muted font-mono mt-1 ml-4 shrink-0">
+            {open ? "[−]" : "[+]"}
           </span>
         </div>
       </button>
 
+      {/* expanded details */}
       <div
-        className={`overflow-hidden transition-[max-height,opacity] duration-[400ms] ease-in-out ${
+        className={`overflow-hidden transition-all duration-400 ease-in-out ${
           open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="border-t border-border mx-5" />
 
         <div className="p-5 pt-4 space-y-5">
+          {/* description */}
           <p className="text-xs text-foreground leading-relaxed">
             {project.longDescription}
           </p>
 
+          {/* stats row */}
           <div className="flex gap-3">
             {project.stats.map((stat) => (
               <div
@@ -97,9 +105,10 @@ export default function ProjectCard({
             ))}
           </div>
 
+          {/* highlights */}
           <div>
-            <p className="text-[10px] text-muted uppercase tracking-wider mb-2">
-              Highlights
+            <p className="text-[10px] text-muted font-mono mb-2">
+              // highlights
             </p>
             <ul className="space-y-1.5">
               {project.highlights.map((h, i) => (
@@ -107,16 +116,17 @@ export default function ProjectCard({
                   key={i}
                   className="text-xs text-foreground flex gap-2 leading-relaxed"
                 >
-                  <span className="text-muted shrink-0">&ndash;</span>
+                  <span className="text-muted shrink-0">&gt;</span>
                   {h}
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* architecture */}
           <div>
-            <p className="text-[10px] text-muted uppercase tracking-wider mb-2">
-              Architecture
+            <p className="text-[10px] text-muted font-mono mb-2">
+              // architecture
             </p>
             <div className="flex items-center gap-2 flex-wrap font-mono text-[10px]">
               {project.architecture.map((layer, i) => (
@@ -132,7 +142,8 @@ export default function ProjectCard({
             </div>
           </div>
 
-          <div className="pt-2 border-t border-border">
+          {/* repo link */}
+          <div className="flex items-center justify-between pt-2 border-t border-border">
             <a
               href={project.repo}
               target="_blank"
@@ -150,6 +161,9 @@ export default function ProjectCard({
               </svg>
               {project.repo.replace("https://github.com/", "")}
             </a>
+            <span className="text-[10px] text-muted font-mono">
+              {project.tags.length} deps · {project.highlights.length} highlights
+            </span>
           </div>
         </div>
       </div>

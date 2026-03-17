@@ -1,39 +1,46 @@
-import FadeIn from "./components/fade-in";
+import NeuralNet from "./components/neural-net";
+import Typewriter from "./components/typewriter";
+import StatusBar from "./components/status-bar";
+import GlowCursor from "./components/glow-cursor";
+import Marquee from "./components/marquee";
+import BootSequence from "./components/boot-sequence";
 
 export default function Home() {
   return (
-    <section className="flex flex-col flex-1">
-      <div className="flex flex-col justify-center flex-1">
-        <FadeIn>
-          <h1 className="text-4xl font-bold text-accent leading-tight tracking-tight">
+    <BootSequence>
+      <section className="relative flex flex-col min-h-[calc(100vh-10rem)]">
+        <NeuralNet />
+        <GlowCursor />
+        <div className="relative z-10 flex flex-col justify-center flex-1">
+          <p className="text-xs text-muted mb-6 font-mono">// hello world</p>
+          <h1 className="text-5xl font-bold text-accent leading-tight tracking-tight">
             Ruben Saulog
           </h1>
-          <p className="text-lg text-foreground mt-2">ML Engineer</p>
-          <p className="text-sm text-muted mt-6 max-w-lg leading-relaxed">
+          <div className="mt-3 h-7">
+            <Typewriter />
+          </div>
+          <p className="text-sm text-muted mt-10 max-w-lg leading-relaxed">
             Building production ML systems — from time series forecasting to
-            distributed pipelines. Previously ML Engineering at Shopee, where I
-            reduced forecast error by 20pp across 10K+ SKUs.
+            distributed pipelines. Ex ML Engineering @ Shopee.
           </p>
-          <p className="text-xs text-muted mt-4 max-w-lg leading-relaxed">
-            Currently finishing undergrad at Ateneo de Manila, exploring
-            attention mechanisms for time series. Based in QC, Philippines.
-          </p>
-          <div className="flex gap-4 mt-10">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-12">
             <a
-              href="/resume"
-              className="text-sm border border-border px-5 py-2 hover:bg-accent hover:text-background transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              href="/projects"
+              className="text-xs border border-border px-6 py-3 sm:px-4 sm:py-2 hover:bg-accent hover:text-background transition-colors text-center"
             >
-              Resume
+              view projects &rarr;
             </a>
             <a
               href="/contact"
-              className="text-sm text-muted hover:text-accent transition-colors px-5 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              className="text-xs text-muted hover:text-accent transition-colors px-6 py-3 sm:px-4 sm:py-2 text-center"
             >
-              Contact
+              get in touch
             </a>
           </div>
-        </FadeIn>
-      </div>
-    </section>
+          <StatusBar />
+        </div>
+        <Marquee />
+      </section>
+    </BootSequence>
   );
 }

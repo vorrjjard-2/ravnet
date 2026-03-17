@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function FadeIn({ children }: { children: React.ReactNode }) {
+export default function SkillBar({
+  name,
+  level,
+}: {
+  name: string;
+  level: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -17,7 +23,7 @@ export default function FadeIn({ children }: { children: React.ReactNode }) {
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 }
     );
 
     observer.observe(el);
@@ -27,11 +33,15 @@ export default function FadeIn({ children }: { children: React.ReactNode }) {
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      }`}
+      className="border border-border p-3 group hover:border-muted transition-colors"
     >
-      {children}
+      <p className="text-xs text-accent">{name}</p>
+      <div className="mt-2 h-px bg-border overflow-hidden">
+        <div
+          className="h-full bg-muted group-hover:bg-accent transition-all duration-1000 ease-out"
+          style={{ width: visible ? `${level}%` : "0%" }}
+        />
+      </div>
     </div>
   );
 }

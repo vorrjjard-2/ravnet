@@ -73,11 +73,12 @@ export default function Projects() {
   return (
     <section>
       <FadeIn>
+        <p className="text-xs text-muted mb-4 font-mono">// projects</p>
         <h1 className="text-2xl font-bold text-accent tracking-tight">
           Projects
         </h1>
-        <p className="text-sm text-muted mt-2">
-          {projects.length} projects —{" "}
+        <p className="text-xs text-muted mt-2 font-mono">
+          {projects.length} entries found —{" "}
           {projects.filter((p) => p.status === "LIVE").length} live,{" "}
           {projects.filter((p) => p.status === "WIP").length} in progress
         </p>
