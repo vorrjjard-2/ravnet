@@ -25,6 +25,8 @@ const skull = `
       |_________|
 `;
 
+// hello world
+
 const glitchChars = "!@#$%^&*()_+-=[]{}|;:',.<>?/~`";
 
 function glitchText(text: string, intensity: number): string {
