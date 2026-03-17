@@ -29,10 +29,10 @@ export default function ResumeShell({
     const card = cardRef.current;
     if (card) {
       card.style.opacity = "0";
-      card.style.transform = "translateY(20px)";
+      card.style.transform = "translate(60%, 80%) rotate(12deg) scale(0.95)";
       card.offsetHeight;
-      card.style.transition = "transform 0.4s ease, opacity 0.4s ease";
-      card.style.transform = "translateY(0)";
+      card.style.transition = "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease";
+      card.style.transform = "translate(0, 0) rotate(0deg) scale(1)";
       card.style.opacity = "1";
     }
 
@@ -51,7 +51,8 @@ export default function ResumeShell({
 
     const card = cardRef.current;
     if (card) {
-      card.style.transition = "opacity 0.3s ease";
+      card.style.transition = "transform 0.5s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.3s ease 0.1s";
+      card.style.transform = "translate(-60%, -80%) rotate(-8deg) scale(0.95)";
       card.style.opacity = "0";
     }
 
@@ -62,7 +63,7 @@ export default function ResumeShell({
         el.style.pointerEvents = "";
       });
       router.back();
-    }, 300);
+    }, 450);
   };
 
   return (
