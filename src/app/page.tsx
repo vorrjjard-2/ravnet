@@ -1,46 +1,28 @@
-import NeuralNet from "./components/neural-net";
-import Typewriter from "./components/typewriter";
-import StatusBar from "./components/status-bar";
-import GlowCursor from "./components/glow-cursor";
-import Marquee from "./components/marquee";
-import BootSequence from "./components/boot-sequence";
-
 export default function Home() {
   return (
-    <BootSequence>
-      <section className="relative flex flex-col min-h-[calc(100vh-10rem)]">
-        <NeuralNet />
-        <GlowCursor />
-        <div className="relative z-10 flex flex-col justify-center flex-1">
-          <p className="text-xs text-muted mb-6 font-mono">// hello world</p>
-          <h1 className="text-5xl font-bold text-accent leading-tight tracking-tight">
-            Ruben Saulog
-          </h1>
-          <div className="mt-3 h-7">
-            <Typewriter />
-          </div>
-          <p className="text-sm text-muted mt-10 max-w-lg leading-relaxed">
-            Building production ML systems — from time series forecasting to
-            distributed pipelines. Ex ML Engineering @ Shopee.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-12">
-            <a
-              href="/projects"
-              className="text-xs border border-border px-6 py-3 sm:px-4 sm:py-2 hover:bg-accent hover:text-background transition-colors text-center"
-            >
-              view projects &rarr;
-            </a>
-            <a
-              href="/contact"
-              className="text-xs text-muted hover:text-accent transition-colors px-6 py-3 sm:px-4 sm:py-2 text-center"
-            >
-              get in touch
-            </a>
-          </div>
-          <StatusBar />
-        </div>
-        <Marquee />
-      </section>
-    </BootSequence>
+    <section className="flex flex-col justify-center min-h-[calc(100vh-10rem)]">
+      <h1 className="text-5xl font-bold text-accent leading-tight tracking-tight">
+        Ruben Saulog
+      </h1>
+      <p className="text-lg text-foreground mt-3">ML Engineer.</p>
+      <p className="text-sm text-muted mt-10 max-w-lg leading-relaxed">
+        Building production ML systems — from time series forecasting to
+        distributed pipelines. Ex ML Engineering @ Shopee.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-12">
+        <a
+          href="/projects"
+          className="text-xs border border-border px-6 py-3 sm:px-4 sm:py-2 hover:bg-accent hover:text-background transition-colors text-center"
+        >
+          view projects &rarr;
+        </a>
+        <a
+          href="/contact"
+          className="text-xs text-muted hover:text-accent transition-colors px-6 py-3 sm:px-4 sm:py-2 text-center"
+        >
+          get in touch
+        </a>
+      </div>
+    </section>
   );
 }

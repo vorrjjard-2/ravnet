@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/nav";
-import PageTransition from "./components/page-transition";
 import BackToTop from "./components/back-to-top";
 
 const geistMono = Geist_Mono({
@@ -58,7 +57,7 @@ export default function RootLayout({
             <Nav />
           </div>
           <main className="flex-1 pt-16">
-            <PageTransition>{children}</PageTransition>
+            {children}
           </main>
           <BackToTop />
           <footer data-layout-chrome className="border-t border-border pt-6 pb-4 mt-20 text-xs text-muted font-mono space-y-2">
@@ -89,7 +88,6 @@ export default function RootLayout({
                 email
               </a>
             </p>
-            <p>built with next.js</p>
           </footer>
         </div>
       </body>

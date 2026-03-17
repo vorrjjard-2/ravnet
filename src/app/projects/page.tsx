@@ -1,4 +1,3 @@
-import FadeIn from "../components/fade-in";
 import ProjectCard, { type Project } from "../components/project-card";
 
 const projects: Project[] = [
@@ -72,23 +71,14 @@ const projects: Project[] = [
 export default function Projects() {
   return (
     <section>
-      <FadeIn>
-        <p className="text-xs text-muted mb-4 font-mono">// projects</p>
-        <h1 className="text-2xl font-bold text-accent tracking-tight">
-          Projects
-        </h1>
-        <p className="text-xs text-muted mt-2 font-mono">
-          {projects.length} entries found —{" "}
-          {projects.filter((p) => p.status === "LIVE").length} live,{" "}
-          {projects.filter((p) => p.status === "WIP").length} in progress
-        </p>
-      </FadeIn>
+      <p className="text-xs text-muted mb-4 font-mono">// projects</p>
+      <h1 className="text-2xl font-bold text-accent tracking-tight">
+        Projects
+      </h1>
 
       <div className="mt-8 space-y-4">
         {projects.map((project, i) => (
-          <FadeIn key={project.title}>
-            <ProjectCard project={project} index={i} />
-          </FadeIn>
+          <ProjectCard key={project.title} project={project} index={i} />
         ))}
       </div>
     </section>
