@@ -1,4 +1,5 @@
 import ExperienceList from "../components/experience";
+import FadeIn from "../components/fade-in";
 
 export default function About() {
   return (
@@ -20,6 +21,7 @@ export default function About() {
         </p>
       </div>
 
+      <FadeIn>
       <div className="mt-14 border-t border-border pt-8">
         <h2 className="text-xs text-muted mb-6 font-mono">// at a glance</h2>
         <div className="grid grid-cols-3 gap-4">
@@ -35,7 +37,9 @@ export default function About() {
           ))}
         </div>
       </div>
+      </FadeIn>
 
+      <FadeIn>
       <div className="mt-14 border-t border-border pt-8">
         <h2 className="text-xs text-muted mb-6 font-mono">// stack</h2>
         <div className="flex flex-wrap gap-2">
@@ -53,12 +57,16 @@ export default function About() {
           ))}
         </div>
       </div>
+      </FadeIn>
 
+      <FadeIn>
       <div className="mt-14 border-t border-border pt-8">
         <h2 className="text-xs text-muted mb-6 font-mono">// experience</h2>
         <ExperienceList />
       </div>
+      </FadeIn>
 
+      <FadeIn>
       <div className="mt-14 border-t border-border pt-8">
         <h2 className="text-xs text-muted mb-6 font-mono">// education</h2>
         <div className="space-y-4">
@@ -82,6 +90,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      </FadeIn>
     </section>
   );
 }

@@ -1,3 +1,5 @@
+import FadeIn from "../components/fade-in";
+
 export default function Contact() {
   return (
     <section>
@@ -11,6 +13,7 @@ export default function Contact() {
         channels below.
       </p>
 
+      <FadeIn>
       <div className="mt-10 space-y-4">
         {[
           { label: "email", value: "ruben.saulog@gmail.com", href: "mailto:ruben.saulog@gmail.com" },
@@ -29,7 +32,9 @@ export default function Contact() {
           </a>
         ))}
       </div>
+      </FadeIn>
 
+      <FadeIn>
       <div className="mt-16 border border-border p-6">
         <p className="text-xs text-muted mb-4 font-mono">
           // or drop a message
@@ -58,6 +63,7 @@ export default function Contact() {
           </button>
         </form>
       </div>
+      </FadeIn>
     </section>
   );
 }

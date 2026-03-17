@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FadeIn from "../components/fade-in";
 import { posts } from "./posts";
 
 export const metadata = {
@@ -14,7 +15,8 @@ export default function Blog() {
 
       <div className="mt-8 space-y-4">
         {posts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
+          <FadeIn key={post.slug}>
+          <Link href={`/blog/${post.slug}`} className="block group">
             <article className="border border-border p-5 hover:bg-white/[0.02] transition-colors">
               <div className="flex items-baseline justify-between">
                 <h2 className="text-sm font-bold text-accent group-hover:underline">
@@ -39,6 +41,7 @@ export default function Blog() {
               </div>
             </article>
           </Link>
+          </FadeIn>
         ))}
       </div>
     </section>

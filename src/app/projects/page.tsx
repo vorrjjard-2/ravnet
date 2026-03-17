@@ -1,3 +1,4 @@
+import FadeIn from "../components/fade-in";
 import ProjectCard, { type Project } from "../components/project-card";
 
 const projects: Project[] = [
@@ -78,7 +79,9 @@ export default function Projects() {
 
       <div className="mt-8 space-y-4">
         {projects.map((project, i) => (
-          <ProjectCard key={project.title} project={project} index={i} />
+          <FadeIn key={project.title}>
+            <ProjectCard project={project} index={i} />
+          </FadeIn>
         ))}
       </div>
     </section>
