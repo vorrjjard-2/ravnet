@@ -10,14 +10,8 @@ export const metadata = {
 export default function Blog() {
   return (
     <section>
-      <FadeIn>
-        <p className="text-xs text-muted mb-4 font-mono">// blog</p>
-        <h1 className="text-2xl font-bold text-accent tracking-tight">Blog</h1>
-        <p className="text-xs text-muted mt-2 font-mono">
-          {posts.length} posts — thoughts on ML systems, production engineering,
-          and lessons learned
-        </p>
-      </FadeIn>
+      <p className="text-xs text-muted mb-4 font-mono">// blog</p>
+      <h1 className="text-2xl font-bold text-accent tracking-tight">Blog</h1>
 
       <div className="mt-8 space-y-4">
         {posts.map((post) => (

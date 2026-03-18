@@ -24,13 +24,7 @@ export default function ProjectCard({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-border group relative overflow-hidden hover:border-muted transition-colors hover:shadow-[0_0_20px_rgba(255,255,255,0.03)]">
-      {/* top gradient line */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-muted to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-      {/* bottom gradient line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-muted to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-      {/* collapsed header — always visible */}
+    <div className="border border-border hover:border-muted transition-colors">
       <button
         onClick={() => setOpen(!open)}
         className="w-full text-left p-5 hover:bg-white/[0.02] transition-colors cursor-pointer"
@@ -76,7 +70,6 @@ export default function ProjectCard({
         </div>
       </button>
 
-      {/* expanded details */}
       <div
         className={`overflow-hidden transition-all duration-400 ease-in-out ${
           open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
@@ -85,12 +78,10 @@ export default function ProjectCard({
         <div className="border-t border-border mx-5" />
 
         <div className="p-5 pt-4 space-y-5">
-          {/* description */}
           <p className="text-xs text-foreground leading-relaxed">
             {project.longDescription}
           </p>
 
-          {/* stats row */}
           <div className="flex gap-3">
             {project.stats.map((stat) => (
               <div
@@ -105,50 +96,24 @@ export default function ProjectCard({
             ))}
           </div>
 
-          {/* highlights */}
-          <div>
-            <p className="text-[10px] text-muted font-mono mb-2">
-              // highlights
-            </p>
-            <ul className="space-y-1.5">
-              {project.highlights.map((h, i) => (
-                <li
-                  key={i}
-                  className="text-xs text-foreground flex gap-2 leading-relaxed"
-                >
-                  <span className="text-muted shrink-0">&gt;</span>
-                  {h}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="space-y-1.5">
+            {project.highlights.map((h, i) => (
+              <li
+                key={i}
+                className="text-xs text-foreground flex gap-2 leading-relaxed"
+              >
+                <span className="text-muted shrink-0">&gt;</span>
+                {h}
+              </li>
+            ))}
+          </ul>
 
-          {/* architecture */}
-          <div>
-            <p className="text-[10px] text-muted font-mono mb-2">
-              // architecture
-            </p>
-            <div className="flex items-center gap-2 flex-wrap font-mono text-[10px]">
-              {project.architecture.map((layer, i) => (
-                <span key={layer} className="flex items-center gap-2">
-                  <span className="border border-border px-2 py-1 text-foreground">
-                    {layer}
-                  </span>
-                  {i < project.architecture.length - 1 && (
-                    <span className="text-muted">&rarr;</span>
-                  )}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* repo link */}
-          <div className="flex items-center justify-between pt-2 border-t border-border">
+          <div className="pt-2 border-t border-border">
             <a
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] text-muted hover:text-accent transition-colors font-mono flex items-center gap-1.5"
+              className="text-[10px] text-muted hover:text-accent transition-colors font-mono flex items-center gap-1.5 w-fit"
               onClick={(e) => e.stopPropagation()}
             >
               <svg
@@ -161,9 +126,6 @@ export default function ProjectCard({
               </svg>
               {project.repo.replace("https://github.com/", "")}
             </a>
-            <span className="text-[10px] text-muted font-mono">
-              {project.tags.length} deps · {project.highlights.length} highlights
-            </span>
           </div>
         </div>
       </div>

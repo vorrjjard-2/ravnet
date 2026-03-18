@@ -15,7 +15,6 @@ export default function ResumeShell({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const overlayRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [leaving, setLeaving] = useState(false);
@@ -28,19 +27,16 @@ export default function ResumeShell({
       el.style.pointerEvents = "none";
     });
 
-    // Slide the card in from below with a slight rotation (like paper sliding onto a desk)
     const card = cardRef.current;
     if (card) {
-      card.style.transform = "translateY(120%) rotate(8deg) scale(0.95)";
       card.style.opacity = "0";
-      card.offsetHeight; // reflow
-      card.style.transition =
-        "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease";
-      card.style.transform = "translateY(0) rotate(0deg) scale(1)";
+      card.style.transform = "translate(60%, 80%) rotate(12deg) scale(0.95)";
+      card.offsetHeight;
+      card.style.transition = "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease";
+      card.style.transform = "translate(0, 0) rotate(0deg) scale(1)";
       card.style.opacity = "1";
     }
 
-    // Fade in the back button after the card lands
     const btn = buttonRef.current;
     if (btn) {
       btn.style.opacity = "0";
@@ -65,12 +61,10 @@ export default function ResumeShell({
     if (leaving) return;
     setLeaving(true);
 
-    // Slide the card off the top (like sweeping paper off a desk)
     const card = cardRef.current;
     if (card) {
-      card.style.transition =
-        "transform 0.5s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.3s ease 0.15s";
-      card.style.transform = "translateY(-120%) rotate(-6deg) scale(0.95)";
+      card.style.transition = "transform 0.5s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.3s ease 0.1s";
+      card.style.transform = "translate(-60%, -80%) rotate(-8deg) scale(0.95)";
       card.style.opacity = "0";
     }
 
@@ -91,10 +85,7 @@ export default function ResumeShell({
   };
 
   return (
-    <div
-      ref={overlayRef}
-      className="fixed inset-0 z-50 bg-background overflow-y-auto"
-    >
+    <div className="fixed inset-0 z-50 bg-background overflow-y-auto">
       <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
         <div ref={cardRef} className="w-full max-w-2xl">
           {children}

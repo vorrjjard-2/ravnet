@@ -89,7 +89,6 @@ export default function RootLayout({
                 email
               </a>
             </p>
-            <p>built with next.js</p>
           </footer>
         </div>
       </body>
