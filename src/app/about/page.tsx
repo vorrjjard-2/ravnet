@@ -1,5 +1,4 @@
 import ExperienceList from "../components/experience";
-import FadeIn from "../components/fade-in";
 
 export default function About() {
   return (
@@ -9,7 +8,7 @@ export default function About() {
 
       <div className="mt-8 space-y-4 text-sm text-foreground leading-relaxed">
         <p>
-          I&apos;m Ruben — an aspiring ML engineer passionate about building
+          I&apos;m Ruben — an ML engineer focused on building
           real-world machine learning systems. I&apos;ve worked across forecasting,
           computer vision, and research, and I&apos;m driven by advancing toward
           top-tier ML research.
@@ -22,17 +21,71 @@ export default function About() {
       </div>
 
       <FadeIn>
-      <div className="mt-14 border-t border-border pt-8">
-        <h2 className="text-xs text-muted mb-6 font-mono">// at a glance</h2>
-        <div className="grid grid-cols-3 gap-4">
-          {[
-            { value: "7mo", label: "at Shopee" },
-            { value: "10K+", label: "SKUs forecasted" },
-            { value: "20pp", label: "avg wMAPE reduction" },
-          ].map((stat) => (
-            <div key={stat.label} className="border border-border p-4 text-center">
-              <p className="text-2xl font-bold text-accent">{stat.value}</p>
-              <p className="text-[10px] text-muted mt-1 uppercase tracking-wider">{stat.label}</p>
+        <div className="mt-14 border-t border-border pt-8">
+          <h2 className="text-xs text-muted mb-6 font-mono">// at a glance</h2>
+          <div className="grid grid-cols-3 gap-4">
+            {[
+              { value: "7mo", label: "at Shopee" },
+              { value: "10K+", label: "SKUs forecasted" },
+              { value: "20pp", label: "avg wMAPE reduction" },
+            ].map((stat) => (
+              <div key={stat.label} className="border border-border p-4 text-center">
+                <p className="text-2xl font-bold text-accent">{stat.value}</p>
+                <p className="text-[10px] text-muted mt-1 uppercase tracking-wider">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </FadeIn>
+
+      <FadeIn>
+        <div className="mt-14 border-t border-border pt-8">
+          <h2 className="text-xs text-muted mb-6 font-mono">// stack</h2>
+          <div className="flex flex-wrap gap-2">
+            {["Python", "PyTorch", "LightGBM", "SQL", "pandas"].map((name) => (
+              <span
+                key={name}
+                className="text-xs border border-accent px-3 py-1.5 text-accent"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+          <div className="mt-6 space-y-3">
+            {[
+              { category: "ML / Data", items: "scikit-learn, pytorch-lightning, pytorch-forecasting" },
+              { category: "Infrastructure", items: "Ray, Trino, SQL pipelines, cron automation" },
+              { category: "Languages", items: "Python, SQL, TypeScript" },
+              { category: "Visualization", items: "matplotlib, seaborn" },
+            ].map((group) => (
+              <div key={group.category} className="flex items-baseline gap-4">
+                <span className="text-[10px] text-muted uppercase tracking-wider w-24 shrink-0">{group.category}</span>
+                <span className="text-sm text-muted">{group.items}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </FadeIn>
+
+      <FadeIn>
+        <div className="mt-14 border-t border-border pt-8">
+          <h2 className="text-xs text-muted mb-6 font-mono">// experience</h2>
+          <ExperienceList />
+        </div>
+      </FadeIn>
+
+      <FadeIn>
+        <div className="mt-14 border-t border-border pt-8">
+          <h2 className="text-xs text-muted mb-6 font-mono">// education</h2>
+          <div className="space-y-4">
+            <div className="border border-border p-4">
+              <div className="flex items-baseline justify-between">
+                <div>
+                  <p className="text-sm text-accent">Ateneo de Manila University</p>
+                  <p className="text-xs text-muted">BS Management Information Systems</p>
+                </div>
+                <p className="text-[10px] text-muted font-mono">2022 — 2027</p>
+              </div>
             </div>
           ))}
         </div>

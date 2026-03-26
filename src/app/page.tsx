@@ -9,10 +9,28 @@ export default function Home() {
         Building production ML systems — from time series forecasting to
         distributed pipelines. Ex ML Engineering @ Shopee.
       </p>
-      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-12">
+
+      <div className="flex items-center gap-8 mt-14 text-xs font-mono text-muted">
+        <div>
+          <p className="text-2xl font-bold text-accent">10K+</p>
+          <p className="mt-0.5 uppercase tracking-wider text-[10px]">SKUs forecasted</p>
+        </div>
+        <div className="w-px h-10 bg-border" />
+        <div>
+          <p className="text-2xl font-bold text-accent">20pp</p>
+          <p className="mt-0.5 uppercase tracking-wider text-[10px]">avg wMAPE reduction</p>
+        </div>
+        <div className="w-px h-10 bg-border" />
+        <div>
+          <p className="text-2xl font-bold text-accent">8</p>
+          <p className="mt-0.5 uppercase tracking-wider text-[10px]">business units</p>
+        </div>
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-14">
         <a
           href="/projects"
-          className="text-xs border border-border px-6 py-3 sm:px-4 sm:py-2 hover:bg-accent hover:text-background transition-colors text-center"
+          className="text-xs bg-accent text-background px-6 py-3 sm:px-4 sm:py-2 hover:opacity-80 transition-opacity text-center"
         >
           view projects &rarr;
         </a>

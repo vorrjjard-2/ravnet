@@ -36,6 +36,17 @@ export default function ResumeShell({
       card.style.opacity = "1";
     }
 
+    const btn = buttonRef.current;
+    if (btn) {
+      btn.style.opacity = "0";
+      btn.style.transform = "translateY(12px)";
+      setTimeout(() => {
+        btn.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+        btn.style.opacity = "1";
+        btn.style.transform = "translateY(0)";
+      }, 500);
+    }
+
     return () => {
       chromeEls.forEach((el) => {
         el.style.transition = "opacity 0.3s ease";
