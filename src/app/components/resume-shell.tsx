@@ -16,6 +16,7 @@ export default function ResumeShell({
 }) {
   const router = useRouter();
   const cardRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const [leaving, setLeaving] = useState(false);
 
   useEffect(() => {
@@ -85,6 +86,7 @@ export default function ResumeShell({
         </div>
 
         <button
+          ref={buttonRef}
           onClick={goBack}
           className="mt-10 mb-6 px-8 py-3 text-xs font-mono bg-accent text-background hover:opacity-80 transition-opacity cursor-pointer"
         >

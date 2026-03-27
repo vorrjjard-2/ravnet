@@ -4,26 +4,25 @@ export default function Home() {
       <h1 className="text-5xl font-bold text-accent leading-tight tracking-tight">
         Ruben Saulog
       </h1>
-      <p className="text-lg text-foreground mt-3">ML Engineer.</p>
+      <p className="text-lg text-foreground mt-3">ML Engineering.</p>
       <p className="text-sm text-muted mt-10 max-w-lg leading-relaxed">
-        Building production ML systems — from time series forecasting to
-        distributed pipelines. Ex ML Engineering @ Shopee.
+        Interested in the power of machines that learn for good. Experienced with various production workflows like time series forecasting to distributed pipelines. Ex MLE @ Shopee.
       </p>
 
       <div className="flex items-center gap-8 mt-14 text-xs font-mono text-muted">
         <div>
-          <p className="text-2xl font-bold text-accent">10K+</p>
-          <p className="mt-0.5 uppercase tracking-wider text-[10px]">SKUs forecasted</p>
+          <p className="text-2xl font-bold text-accent">3+</p>
+          <p className="mt-0.5 uppercase tracking-wider text-[10px]">pipelines deployed</p>
         </div>
         <div className="w-px h-10 bg-border" />
-        <div>
-          <p className="text-2xl font-bold text-accent">20pp</p>
-          <p className="mt-0.5 uppercase tracking-wider text-[10px]">avg wMAPE reduction</p>
-        </div>
+      <div>
+          <p className="text-2xl font-bold text-accent">$20M+</p>
+          <p className="mt-0.5 uppercase tracking-wider text-[10px]">handled inventory</p>
+        </div>  
         <div className="w-px h-10 bg-border" />
         <div>
-          <p className="text-2xl font-bold text-accent">8</p>
-          <p className="mt-0.5 uppercase tracking-wider text-[10px]">business units</p>
+          <p className="text-2xl font-bold text-accent">pytorch</p>
+          <p className="mt-0.5 uppercase tracking-wider text-[10px]">specialty</p>
         </div>
       </div>
 

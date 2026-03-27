@@ -1,73 +1,13 @@
 import FadeIn from "../components/fade-in";
-import ProjectCard, { type Project } from "../components/project-card";
+import ProjectCard from "../components/project-card";
+import { projects, labProjects, type LabProject } from "./projects";
 
-const projects: Project[] = [
-  {
-    title: "Sales Forecasting Pipeline",
-    description: "Production ML system forecasting 10K+ SKUs across 8 business units at Shopee.",
-    longDescription:
-      "A sequential forecasting architecture designed to handle zero-skewed sales distributions across Shopee's retail business units. The system combines LightGBM for broad SKU coverage with a Temporal Fusion Transformer for data-rich SKUs, distributed across a Ray cluster for scale. Reduced wMAPE by an average of 20 percentage points, directly improving restocking accuracy and cutting opportunity costs.",
-    tags: ["Python", "LightGBM", "PyTorch", "Ray"],
-    status: "LIVE",
-    repo: "https://github.com/vorrjjard-2",
-    highlights: [
-      "Reduced wMAPE across 8 BUs — average 20pp reduction, max 44pp",
-      "Forecasts 10K+ unique SKUs over a 30+ day horizon",
-      "Built TFT model in pytorch / pytorch-forecasting / pytorch-lightning for high-data SKUs",
-      "Time-series feature engineering: dynamic target encoding, EWM averages, rolling trends",
-      "Distributed training and inference via Ray for horizontal scaling",
-    ],
-    stats: [
-      { label: "SKUs", value: "10K+" },
-      { label: "avg wMAPE reduction", value: "20pp" },
-      { label: "horizon", value: "30+ days" },
-    ],
-    architecture: ["Feature Store", "LightGBM / TFT", "Ray Cluster", "Evaluation", "Production"],
-  },
-  {
-    title: "Inventory Analytics Dashboard",
-    description: "Automated SQL-based dashboard that cut non-moving inventory by 50% in 8 weeks.",
-    longDescription:
-      "A cron-based automation system that generates daily and historical views of non-moving SKU metrics for Shopee's Retail team under SCommerce. Built to give managers real-time visibility into stagnant inventory worth $20M+ USD, enabling faster decisions on flushing and restocking. The solution was adopted across multiple business units.",
-    tags: ["SQL", "Trino", "Python", "pandas"],
-    status: "LIVE",
-    repo: "https://github.com/vorrjjard-2",
-    highlights: [
-      "50% decrease in non-moving SKU inventory value within 8 weeks",
-      "Daily and historical metric views via cron-automated SQL pipelines",
-      "Adopted across multiple business units beyond the original team",
-      "Refined replenishment logic for brands like Apple and Samsung",
-      "Served as data PIC — inventory reports used by ~25 brands",
-    ],
-    stats: [
-      { label: "inventory managed", value: "$20M+" },
-      { label: "non-moving reduction", value: "50%" },
-      { label: "brands served", value: "~25" },
-    ],
-    architecture: ["Trino / SQL", "Cron Scheduler", "pandas ETL", "Dashboard"],
-  },
-  {
-    title: "Temporal Fusion Transformer",
-    description: "Deep learning forecasting model built in PyTorch for high-data SKUs.",
-    longDescription:
-      "A standalone implementation of the Temporal Fusion Transformer architecture using pytorch, pytorch-forecasting, and pytorch-lightning. Designed as a complementary model to the LightGBM pipeline for SKUs with sufficient historical data, leveraging attention mechanisms to capture long-range temporal dependencies and variable-importance interpretability.",
-    tags: ["PyTorch", "pytorch-forecasting", "pytorch-lightning"],
-    status: "LIVE",
-    repo: "https://github.com/vorrjjard-2",
-    highlights: [
-      "Multi-horizon probabilistic forecasting with quantile outputs",
-      "Built-in variable importance via attention weight interpretation",
-      "Trained on SKUs with richer historical data for higher accuracy",
-      "Integrated into the broader forecasting pipeline alongside LightGBM",
-    ],
-    stats: [
-      { label: "framework", value: "PyTorch" },
-      { label: "type", value: "TFT" },
-      { label: "output", value: "multi-horizon" },
-    ],
-    architecture: ["Data Loader", "Encoder", "Attention", "Decoder", "Quantile Output"],
-  },
-];
+const statusStyles: Record<LabProject["status"], string> = {
+  COMPLETE: "text-accent",
+  BUILDING: "text-green-400",
+  ARCHIVED: "text-muted",
+  UPCOMING: "text-yellow-400",
+};
 
 export default function Projects() {
   return (
@@ -84,6 +24,53 @@ export default function Projects() {
           </FadeIn>
         ))}
       </div>
+
+      <FadeIn>
+        <div className="mt-14 border-t border-border pt-8">
+          <p className="text-xs text-muted mb-4 font-mono">// lab</p>
+          <h2 className="text-2xl font-bold text-accent tracking-tight">Lab</h2>
+          <p className="text-sm text-muted mt-2 mb-6">explore my personal projects.</p>
+          <div className="space-y-0 divide-y divide-border border-t border-b border-border">
+            {labProjects.map((project) => {
+              const hasRepo = project.repo.replace("https://github.com/", "").includes("/");
+              return (
+              <a
+                key={project.title}
+                href={hasRepo ? project.repo : "/404"}
+                {...(hasRepo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="flex items-center justify-between gap-4 py-3 px-1 group"
+              >
+                <div className="flex items-center gap-2 min-w-0">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-muted shrink-0"
+                  >
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                  <span className="text-sm text-accent group-hover:underline font-mono shrink-0">
+                    {project.title}
+                  </span>
+                  <span className="text-xs text-muted hidden sm:inline truncate">
+                    {project.description}
+                  </span>
+                </div>
+                <div className="flex items-center gap-3 shrink-0">
+                  <span className={`text-[10px] uppercase tracking-wider ${statusStyles[project.status].split(" ")[0]}`}>
+                    {project.status}
+                  </span>
+                  <span className="text-[10px] text-muted font-mono">
+                    {project.lastCommit}
+                  </span>
+                </div>
+              </a>
+              );
+            })}
+          </div>
+        </div>
+      </FadeIn>
     </section>
   );
 }

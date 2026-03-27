@@ -1,4 +1,5 @@
 import ExperienceList from "../components/experience";
+import FadeIn from "../components/fade-in";
 
 export default function About() {
   return (
@@ -25,9 +26,9 @@ export default function About() {
           <h2 className="text-xs text-muted mb-6 font-mono">// at a glance</h2>
           <div className="grid grid-cols-3 gap-4">
             {[
-              { value: "7mo", label: "at Shopee" },
-              { value: "10K+", label: "SKUs forecasted" },
-              { value: "20pp", label: "avg wMAPE reduction" },
+              { value: "3+", label: "pipelines deployed" },
+              { value: "$20M+", label: "handled inventory" },
+              { value: "pytorch", label: "specialty" },
             ].map((stat) => (
               <div key={stat.label} className="border border-border p-4 text-center">
                 <p className="text-2xl font-bold text-accent">{stat.value}</p>
@@ -87,62 +88,17 @@ export default function About() {
                 <p className="text-[10px] text-muted font-mono">2022 — 2027</p>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-      </FadeIn>
-
-      <FadeIn>
-      <div className="mt-14 border-t border-border pt-8">
-        <h2 className="text-xs text-muted mb-6 font-mono">// stack</h2>
-        <div className="flex flex-wrap gap-2">
-          {[
-            "Python", "PyTorch", "scikit-learn", "SQL / Trino",
-            "Ray", "LightGBM", "pandas", "pytorch-lightning",
-            "matplotlib / seaborn",
-          ].map((name) => (
-            <span
-              key={name}
-              className="text-xs border border-border px-3 py-1.5 text-foreground"
-            >
-              {name}
-            </span>
-          ))}
-        </div>
-      </div>
-      </FadeIn>
-
-      <FadeIn>
-      <div className="mt-14 border-t border-border pt-8">
-        <h2 className="text-xs text-muted mb-6 font-mono">// experience</h2>
-        <ExperienceList />
-      </div>
-      </FadeIn>
-
-      <FadeIn>
-      <div className="mt-14 border-t border-border pt-8">
-        <h2 className="text-xs text-muted mb-6 font-mono">// education</h2>
-        <div className="space-y-4">
-          <div className="border border-border p-4">
-            <div className="flex items-baseline justify-between">
-              <div>
-                <p className="text-sm text-accent">Ateneo de Manila University</p>
-                <p className="text-xs text-muted">BS Management Information Systems</p>
+            <div className="border border-border p-4">
+              <div className="flex items-baseline justify-between">
+                <div>
+                  <p className="text-sm text-accent">Xavier School</p>
+                  <p className="text-xs text-muted">High School Diploma, STEM</p>
+                </div>
+                <p className="text-[10px] text-muted font-mono">2009 — 2022</p>
               </div>
-              <p className="text-[10px] text-muted font-mono">2022 — 2027</p>
-            </div>
-          </div>
-          <div className="border border-border p-4">
-            <div className="flex items-baseline justify-between">
-              <div>
-                <p className="text-sm text-accent">Xavier School</p>
-                <p className="text-xs text-muted">High School Diploma, STEM</p>
-              </div>
-              <p className="text-[10px] text-muted font-mono">2009 — 2022</p>
             </div>
           </div>
         </div>
-      </div>
       </FadeIn>
     </section>
   );
