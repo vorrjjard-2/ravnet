@@ -15,10 +15,10 @@ export default function Home() {
           <p className="mt-0.5 uppercase tracking-wider text-[10px]">pipelines deployed</p>
         </div>
         <div className="w-px h-10 bg-border" />
-      <div>
+        <div>
           <p className="text-2xl font-bold text-accent">$20M+</p>
           <p className="mt-0.5 uppercase tracking-wider text-[10px]">handled inventory</p>
-        </div>  
+        </div>
         <div className="w-px h-10 bg-border" />
         <div>
           <p className="text-2xl font-bold text-accent">pytorch</p>

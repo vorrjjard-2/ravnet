@@ -22,7 +22,7 @@ export default function ResumePage() {
             <p>github.com/vorrjjard-2</p>
             <p>linkedin.com/in/ruben-saulog</p>
             <a
-              href="/resume.pdf"
+              href="/Saulog_Ruben.pdf"
               className="inline-block mt-1 border border-border px-2 py-0.5 hover:bg-accent hover:text-background transition-colors"
             >
               pdf &darr;

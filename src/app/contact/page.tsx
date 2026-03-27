@@ -23,6 +23,8 @@ export default function Contact() {
             <a
               key={item.label}
               href={item.href}
+              target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={item.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
               className="flex items-baseline gap-4 group"
             >
               <span className="text-xs text-muted w-16">{item.label}</span>
