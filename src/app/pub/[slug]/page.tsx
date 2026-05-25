@@ -174,10 +174,10 @@ export default async function BlogPost({ params }: Props) {
   return (
     <section>
       <Link
-        href="/blog"
+        href="/pub"
         className="text-xs text-muted hover:text-accent transition-colors font-mono"
       >
-        &larr; back to blog
+        &larr; back to pub
       </Link>
 
       <h1 className="text-2xl font-bold text-accent tracking-tight mt-12">
@@ -205,10 +205,10 @@ export default async function BlogPost({ params }: Props) {
 
       <div className="mt-16 pt-6 border-t border-border">
         <Link
-          href="/blog"
+          href="/pub"
           className="text-xs text-muted hover:text-accent transition-colors font-mono"
         >
-          &larr; back to blog
+          &larr; back to pub
         </Link>
       </div>
     </section>

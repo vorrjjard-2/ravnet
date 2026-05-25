@@ -9,15 +9,13 @@ export default function About() {
 
       <div className="mt-8 space-y-4 text-sm text-foreground leading-relaxed">
         <p>
-          I&apos;m Ruben — an ML engineer focused on building
-          real-world machine learning systems. I&apos;ve worked across forecasting,
-          computer vision, and research, and I&apos;m driven by advancing toward
-          top-tier ML research.
+          Hello! I'm Ravi, and I love all things related to machine learning. I've worked in various ML subsctions
+          like computer vision, forecasting, and most recently, mechanistic interpretability. I'm a hybrid between an engineer 
+          and a researcher.
         </p>
         <p>
-          Currently finishing my BS in Management Information Systems at
-          Ateneo de Manila University. Previously built production ML pipelines
-          at Shopee, from distributed forecasting systems to inventory analytics.
+          I've previously built ML systems for Shopee (see my projects page), although my recent work is more academic,
+          being involved with the ALIVE lab. My dream is to contribute to research that changes the world :)
         </p>
       </div>
 

@@ -1,4 +1,5 @@
 import ResumeShell from "../components/resume-shell";
+import { experiences } from "../data/experiences";
 
 export const metadata = {
   title: "Resume",
@@ -44,105 +45,29 @@ export default function ResumePage() {
             Experience
           </h2>
 
-          <div className="mt-3">
-            <div className="flex items-baseline justify-between">
-              <div className="flex items-baseline gap-2">
-                <h3 className="text-xs font-bold text-accent">
-                  ML Engineering Intern
-                </h3>
-                <span className="text-[10px] text-muted">
-                  &middot; Shopee &middot; Mandaluyong, PH
-                </span>
+          {experiences.map((exp, i) => (
+            <div key={exp.role} className={i === 0 ? "mt-3" : "mt-4"}>
+              <div className="flex items-baseline justify-between">
+                <div className="flex items-baseline gap-2">
+                  <h3 className="text-xs font-bold text-accent">{exp.role}</h3>
+                  <span className="text-[10px] text-muted">
+                    &middot; {exp.org} &middot; {exp.location}
+                  </span>
+                </div>
+                <p className="text-[10px] text-muted shrink-0 ml-2">
+                  {exp.period}
+                </p>
               </div>
-              <p className="text-[10px] text-muted shrink-0 ml-2">
-                Sep &ndash; Dec 2025
-              </p>
+              <ul className="mt-1.5 space-y-1 text-[11px] text-foreground leading-relaxed">
+                {exp.details.map((detail, j) => (
+                  <li key={j} className="flex gap-1.5">
+                    <span className="text-muted shrink-0">&ndash;</span>
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="mt-1.5 space-y-1 text-[11px] text-foreground leading-relaxed">
-              <li className="flex gap-1.5">
-                <span className="text-muted shrink-0">&ndash;</span>
-                <span>
-                  Reduced wMAPE across 8 business units — average 20pp
-                  reduction, max 44pp — directly improving restocking accuracy
-                </span>
-              </li>
-              <li className="flex gap-1.5">
-                <span className="text-muted shrink-0">&ndash;</span>
-                <span>
-                  Built sequential forecasting architecture using LightGBM for
-                  10K+ SKUs over 30+ day horizons
-                </span>
-              </li>
-              <li className="flex gap-1.5">
-                <span className="text-muted shrink-0">&ndash;</span>
-                <span>
-                  Developed Temporal Fusion Transformer in PyTorch /
-                  pytorch-forecasting for high-data SKUs with attention-based
-                  interpretability
-                </span>
-              </li>
-              <li className="flex gap-1.5">
-                <span className="text-muted shrink-0">&ndash;</span>
-                <span>
-                  Distributed training and inference via Ray cluster for
-                  horizontal scaling
-                </span>
-              </li>
-              <li className="flex gap-1.5">
-                <span className="text-muted shrink-0">&ndash;</span>
-                <span>
-                  Engineered time-series features: dynamic target encoding, EWM
-                  averages, rolling trends (mean, std)
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="mt-4">
-            <div className="flex items-baseline justify-between">
-              <div className="flex items-baseline gap-2">
-                <h3 className="text-xs font-bold text-accent">
-                  Data Engineering Intern
-                </h3>
-                <span className="text-[10px] text-muted">
-                  &middot; Shopee &middot; Mandaluyong, PH
-                </span>
-              </div>
-              <p className="text-[10px] text-muted shrink-0 ml-2">
-                Jun &ndash; Aug 2025
-              </p>
-            </div>
-            <ul className="mt-1.5 space-y-1 text-[11px] text-foreground leading-relaxed">
-              <li className="flex gap-1.5">
-                <span className="text-muted shrink-0">&ndash;</span>
-                <span>
-                  Built data-driven solutions for the Retail team under
-                  SCommerce, managing $20M+ USD in inventory value
-                </span>
-              </li>
-              <li className="flex gap-1.5">
-                <span className="text-muted shrink-0">&ndash;</span>
-                <span>
-                  Developed cron-based SQL dashboard automation for non-moving
-                  SKU metrics — 50% decrease in non-moving inventory in 8 weeks
-                </span>
-              </li>
-              <li className="flex gap-1.5">
-                <span className="text-muted shrink-0">&ndash;</span>
-                <span>
-                  Refined replenishment logic via SQL scripts for brands like
-                  Apple and Samsung
-                </span>
-              </li>
-              <li className="flex gap-1.5">
-                <span className="text-muted shrink-0">&ndash;</span>
-                <span>
-                  Served as data PIC — built ad-hoc reports and generated
-                  inventory reports used by ~25 brands
-                </span>
-              </li>
-            </ul>
-          </div>
+          ))}
         </div>
 
         {/* two-column: education + skills */}

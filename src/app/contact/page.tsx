@@ -9,8 +9,6 @@ export default function Contact() {
       </h1>
 
       <p className="text-sm text-foreground mt-6 max-w-md leading-relaxed">
-        Want to collaborate or just say hello? Reach out through any of the
-        channels below.
       </p>
 
       <FadeIn>

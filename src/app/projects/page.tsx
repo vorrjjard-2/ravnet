@@ -10,15 +10,15 @@ const statusStyles: Record<LabProject["status"], string> = {
 };
 
 export default function Projects() {
+  const pinnedProjects = projects.filter((p) => p.pinned);
+
   return (
     <section>
-      <p className="text-xs text-muted mb-4 font-mono">// projects</p>
-      <h1 className="text-2xl font-bold text-accent tracking-tight">
-        Projects
-      </h1>
+      <p className="text-xs text-muted mb-4 font-mono">// pinned</p>
+      <h1 className="text-2xl font-bold text-accent tracking-tight">Pinned</h1>
 
       <div className="mt-8 space-y-4">
-        {projects.map((project, i) => (
+        {pinnedProjects.map((project, i) => (
           <FadeIn key={project.title}>
             <ProjectCard project={project} index={i} />
           </FadeIn>
@@ -27,8 +27,8 @@ export default function Projects() {
 
       <FadeIn>
         <div className="mt-14 border-t border-border pt-8">
-          <p className="text-xs text-muted mb-4 font-mono">// lab</p>
-          <h2 className="text-2xl font-bold text-accent tracking-tight">Lab</h2>
+          <p className="text-xs text-muted mb-4 font-mono">// projects</p>
+          <h2 className="text-2xl font-bold text-accent tracking-tight">Projects</h2>
           <p className="text-sm text-muted mt-2 mb-6">explore my personal projects.</p>
           <div className="space-y-0 divide-y divide-border border-t border-b border-border">
             {labProjects.map((project) => {

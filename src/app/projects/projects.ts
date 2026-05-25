@@ -17,7 +17,8 @@ export const projects: Project[] = [
       "A sequential forecasting architecture designed to handle zero-skewed sales distributions across Shopee's retail business units. The system combines LightGBM for broad SKU coverage with a Temporal Fusion Transformer for data-rich SKUs, distributed across a Ray cluster for scale. Reduced wMAPE by an average of 20 percentage points, directly improving restocking accuracy and cutting opportunity costs.",
     tags: ["Python", "LightGBM", "PyTorch", "Ray"],
     status: "LIVE",
-    repo: "https://github.com/vorrjjard-2",
+    pinned: true,
+    repos: [{ url: "https://github.com/vorrjjard-2" }],
     highlights: [
       "Reduced wMAPE across 8 BUs — average 20pp reduction, max 44pp",
       "Forecasts 10K+ unique SKUs over a 30+ day horizon",
@@ -39,7 +40,8 @@ export const projects: Project[] = [
       "A cron-based automation system that generates daily and historical views of non-moving SKU metrics for Shopee's Retail team under SCommerce. Built to give managers real-time visibility into stagnant inventory worth $20M+ USD, enabling faster decisions on flushing and restocking. The solution was adopted across multiple business units.",
     tags: ["SQL", "Trino", "Python", "pandas"],
     status: "LIVE",
-    repo: "https://github.com/vorrjjard-2",
+    pinned: true,
+    repos: [{ url: "https://github.com/vorrjjard-2" }],
     highlights: [
       "50% decrease in non-moving SKU inventory value within 8 weeks",
       "Daily and historical metric views via cron-automated SQL pipelines",
@@ -55,29 +57,49 @@ export const projects: Project[] = [
     architecture: ["Trino / SQL", "Cron Scheduler", "pandas ETL", "Dashboard"],
   },
   {
-    title: "Temporal Fusion Transformer",
-    description: "Deep learning forecasting model built in PyTorch for high-data SKUs.",
+    title: "CXR Classifier + VQA Module",
+    description:
+      "Parameter-efficient chest X-ray classifier and VQA module powering a radiologist-facing diagnostic platform at Ateneo's ALIVE lab.",
     longDescription:
-      "A standalone implementation of the Temporal Fusion Transformer architecture using pytorch, pytorch-forecasting, and pytorch-lightning. Designed as a complementary model to the LightGBM pipeline for SKUs with sufficient historical data, leveraging attention mechanisms to capture long-range temporal dependencies and variable-importance interpretability.",
-    tags: ["PyTorch", "pytorch-forecasting", "pytorch-lightning"],
-    status: "LIVE",
-    repo: "https://github.com/vorrjjard-2",
+      "Research work at the Ateneo Laboratory for Intelligent Visual Environments (ALIVE) as second author / research assistant. The classifier uses a custom symmetry-aware block to reach ~0.999 AUC and 98.97% held-out accuracy on TBX11K, matching DenseNet-121 and ResNet-50 baselines at 3-9× fewer parameters across nine evaluated architectures. A companion VQA module converts raw model outputs (logits, bounding-box coordinates) into natural-language responses via a fine-tuned LLM, and is integrated into a full-stack web platform used by radiologists to upload CXRs and review diagnostic results.",
+    tags: ["PyTorch", "CV", "LLM", "VQA"],
+    status: "WIP",
+    pinned: true,
+    repos: [
+      { label: "classifier", url: "" }, // TODO: paste model repo URL here
+      { label: "vqa-module", url: "" }, // TODO: paste VQA module repo URL here
+    ],
     highlights: [
-      "Multi-horizon probabilistic forecasting with quantile outputs",
-      "Built-in variable importance via attention weight interpretation",
-      "Trained on SKUs with richer historical data for higher accuracy",
-      "Integrated into the broader forecasting pipeline alongside LightGBM",
+      "~0.999 AUC and 98.97% held-out accuracy on TBX11K",
+      "Matches DenseNet-121 / ResNet-50 baselines at 3-9× fewer parameters",
+      "Custom symmetry-aware block evaluated across nine architectures",
+      "VQA module bridges model outputs to natural-language explanations via a fine-tuned LLM",
+      "Integrated into a full-stack web platform used by radiologists",
     ],
     stats: [
-      { label: "framework", value: "PyTorch" },
-      { label: "type", value: "TFT" },
-      { label: "output", value: "multi-horizon" },
+      { label: "AUC", value: "~0.999" },
+      { label: "accuracy", value: "98.97%" },
+      { label: "param reduction", value: "3-9×" },
     ],
-    architecture: ["Data Loader", "Encoder", "Attention", "Decoder", "Quantile Output"],
+    architecture: [
+      "CXR Input",
+      "Symmetry-Aware Backbone",
+      "Classifier Head",
+      "VQA / LLM",
+      "Web Platform",
+    ],
   },
 ];
 
 export const labProjects: LabProject[] = [
+  {
+    title: "temporal-fusion-transformer",
+    description: "PyTorch implementation of TFT for multi-horizon SKU forecasting with attention-based interpretability.",
+    tags: ["PyTorch", "Forecasting"],
+    repo: "",
+    lastCommit: "",
+    status: "COMPLETE",
+  },
   {
     title: "word2vec",
     description: "Skip-gram with negative sampling trained on WikiText-2, producing 512-d word vectors end-to-end in PyTorch Lightning.",

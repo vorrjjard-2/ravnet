@@ -4,9 +4,10 @@ export default function Home() {
       <h1 className="text-5xl font-bold text-accent leading-tight tracking-tight">
         Ruben Saulog
       </h1>
-      <p className="text-lg text-foreground mt-3">ML Engineering.</p>
+      <p className="text-lg text-foreground mt-3">ML Engineering / ML Research</p>
       <p className="text-sm text-muted mt-10 max-w-lg leading-relaxed">
-        Interested in the power of machines that learn for good. Experienced with various production workflows like time series forecasting to distributed pipelines. Ex MLE @ Shopee.
+        Interested in the power of machines that learn for good. Independent researcher aiming to contribute to interesting research about deep learning. Ex MLE @ Shopee, Current research assistant with ALIVE.
+       
       </p>
 
       <div className="flex items-center gap-8 mt-14 text-xs font-mono text-muted">
